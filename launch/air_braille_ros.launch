@@ -1,0 +1,30 @@
+<launch>
+    <arg name="file_location" default="/home/vic/Desktop/fyp/src/air_braille_ros/input.txt" />
+    <arg name="file_type" default="txt" />
+
+    <arg name="width" default="7" />
+    <arg name="height" default="7" />
+    <arg name="pixels_per_char" default="150" />
+
+    <arg name="serial_data_out_topic" default="send_to_device" />
+    <arg name="serial_data_in_topic" default="received_from_device" />
+
+    <arg name="world_frame" default="world" />
+    <arg name="device_frame" default="yeet" />
+
+    <node pkg="air_braille_ros" type="air_braille_server.py" name="air_braille_server" output="screen">
+        <param name="file_location" value="$(arg file_location)" />
+        <param name="file_type" value="$(arg file_type)" />
+
+        <param name="width" value="$(arg width)" />
+        <param name="height" value="$(arg height)" />
+        <param name="pixels_per_char" value="$(arg pixels_per_char)" />
+
+        <param name="serial_data_out_topic" value="$(arg serial_data_out_topic)" />
+        <param name="serial_data_in_topic" value="$(arg serial_data_in_topic)" />
+
+        <param name="world_frame" value="$(arg world_frame)" />
+        <param name="device_frame" value="$(arg device_frame)" />
+        
+    </node>
+</launch>
