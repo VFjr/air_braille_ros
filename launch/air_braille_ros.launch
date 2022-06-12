@@ -2,15 +2,29 @@
     <arg name="file_location" default="/home/vic/Desktop/fyp/src/air_braille_ros/input.txt" />
     <arg name="file_type" default="txt" />
 
-    <arg name="width" default="7" />
-    <arg name="height" default="7" />
-    <arg name="pixels_per_char" default="150" />
+    <arg name="width" default="8" />
+    <arg name="height" default="4" />
+    <arg name="pixels_per_char" default="200" />
+    <arg name="horizontal_spacer_pixels" default="30" />
+    <arg name="vertical_spacer_pixels" default="80" />
 
     <arg name="serial_data_out_topic" default="send_to_device" />
     <arg name="serial_data_in_topic" default="received_from_device" />
 
     <arg name="world_frame" default="world" />
     <arg name="device_frame" default="yeet" />
+
+    <arg name="pin_1_offset" default="2" />
+    <arg name="pin_2_offset" default="4" />
+    <arg name="pin_3_offset" default="4" />
+    <arg name="pin_4_offset" default="4" />
+    <arg name="pin_5_offset" default="3" />
+    <arg name="pin_6_offset" default="5" />
+
+    <arg name="sound_enabled" default="true" /> <!--only used in text_page mode-->
+
+    <arg name="mode" default="single_char" />    <!--single_char, text_page, image-->
+    
 
     <node pkg="air_braille_ros" type="air_braille_server.py" name="air_braille_server" output="screen">
         <param name="file_location" value="$(arg file_location)" />
@@ -19,12 +33,27 @@
         <param name="width" value="$(arg width)" />
         <param name="height" value="$(arg height)" />
         <param name="pixels_per_char" value="$(arg pixels_per_char)" />
+        <param name="horizontal_spacer_pixels" value="$(arg horizontal_spacer_pixels)"  />
+        <param name="vertical_spacer_pixels" value="$(arg vertical_spacer_pixels)" />
 
         <param name="serial_data_out_topic" value="$(arg serial_data_out_topic)" />
         <param name="serial_data_in_topic" value="$(arg serial_data_in_topic)" />
 
         <param name="world_frame" value="$(arg world_frame)" />
         <param name="device_frame" value="$(arg device_frame)" />
+
+        <param name="pin_1_offset" value="$(arg pin_1_offset)" />
+        <param name="pin_2_offset" value="$(arg pin_2_offset)" />
+        <param name="pin_3_offset" value="$(arg pin_3_offset)" />
+        <param name="pin_4_offset" value="$(arg pin_4_offset)" />
+        <param name="pin_5_offset" value="$(arg pin_5_offset)" />
+        <param name="pin_6_offset" value="$(arg pin_6_offset)" />
+
+        <param name="sound_enabled" value="$(arg sound_enabled)" />
+
+        <param name="mode" value="$(arg mode)" />
         
+
+
     </node>
 </launch>
